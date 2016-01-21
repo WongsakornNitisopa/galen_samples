@@ -15,7 +15,7 @@ import util.testng.GalenBaseTest;
  */
 public class JavascriptLayoutTest extends GalenBaseTest {
 
-	@Test(dataProvider = "devices")
+	//@Test(dataProvider = "devices")
 	public void shouldShowCorrectBaseLayout(final TestDevice device) throws Exception {
 	    verifyPage("/javascript", 
 	            device, 

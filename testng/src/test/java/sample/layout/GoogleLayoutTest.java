@@ -25,7 +25,7 @@ public class GoogleLayoutTest extends GalenBaseTest {
       return "https://google.com";
   }
 
-  @Test(dataProvider = "devices")
+  //@Test(dataProvider = "devices")
   public void shouldShowCorrectBaseLayout(final TestDevice device) throws Exception {
 	  load("/");
     enterText(By.id("lst-ib"),"Galen Testing");

@@ -15,11 +15,11 @@ import util.testng.GalenBaseTest;
  */
 public class HomeLayoutTest extends GalenBaseTest {
 
-	@Test(dataProvider = "devices")
+	//@Test(dataProvider = "devices")
 	public void shouldShowCorrectBaseLayout(final TestDevice device) throws Exception {
 		verifyPage("/", 
 		        device, 
-		        "/specs/homePageLayout.gspec", 
+		        "/specs/homePageLayout.gspec",
 		        Arrays.asList("Homepage", "Bootstrap"));
 	}
 

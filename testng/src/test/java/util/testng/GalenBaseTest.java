@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Properties;
 
+import com.apple.eawt.AppEvent;
 import com.galenframework.specs.reader.page.SectionFilter;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
@@ -162,14 +163,15 @@ public abstract class GalenBaseTest {
 
 	public WebDriver getDriver() throws MalformedURLException {
 		if (activeWebDriver == null) {
+			System.err.println("activeWebDriver");
 			final String grid = System.getProperty("selenium.grid");
-			if (grid == null) {
+//			if (grid == null) {
 				activeWebDriver = new FirefoxDriver();
-			} else {
+//			} else {
 				// chrome runs much faster in a selenium grid
-				activeWebDriver = new RemoteWebDriver(new URL(grid),
-						DesiredCapabilities.chrome());
-			}
+//				activeWebDriver = new RemoteWebDriver(new URL(grid),
+//						DesiredCapabilities.chrome());
+//			}
 		}
 		return activeWebDriver;
 
@@ -179,20 +181,20 @@ public abstract class GalenBaseTest {
 	public Object[][] devices() {
 		LOG.info("devices");
 		return new Object[][] {// @formatter:off
-				{ new TestDevice("small-phone", new Dimension(280, 800),
-						asList("small-phone", "phone", "mobile")) },
-				{ new TestDevice("normal-phone", new Dimension(320, 800),
-						asList("normal-phone", "phone", "mobile")) },
-				{ new TestDevice("big-phone", new Dimension(380, 800), asList(
-						"big-phone", "phone", "mobile")) },
-				{ new TestDevice("small-tablet", new Dimension(450, 800),
-						asList("small-tablet", "tablet", "mobile")) },
-				{ new TestDevice("normal-tablet", new Dimension(450, 800),
-						asList("normal-tablet", "tablet", "mobile")) },
+//				{ new TestDevice("small-phone", new Dimension(280, 800),
+//						asList("small-phone", "phone", "mobile")) },
+//				{ new TestDevice("normal-phone", new Dimension(320, 800),
+//						asList("normal-phone", "phone", "mobile")) },
+//				{ new TestDevice("big-phone", new Dimension(380, 800), asList(
+//						"big-phone", "phone", "mobile")) },
+//				{ new TestDevice("small-tablet", new Dimension(450, 800),
+//						asList("small-tablet", "tablet", "mobile")) },
+//				{ new TestDevice("normal-tablet", new Dimension(450, 800),
+//						asList("normal-tablet", "tablet", "mobile")) },
 				{ new TestDevice("desktop", new Dimension(1024, 800), asList(
 						"desktop", "desktop")) },
-				{ new TestDevice("fullhd", new Dimension(1920, 1080), asList(
-						"fullhd", "desktop")) },// @formatter:on
+//				{ new TestDevice("fullhd", new Dimension(1920, 1080), asList(
+//						"fullhd", "desktop")) },// @formatter:on
 		};
 	}
 
