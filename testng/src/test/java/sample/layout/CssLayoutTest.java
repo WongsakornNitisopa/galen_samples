@@ -21,7 +21,7 @@ public class CssLayoutTest extends GalenBaseTest {
   public final static String INPUT_EMAIL = "//*[contains(@data-example-id,'basic-forms')]//input[contains(@type,'email')]";
     
 
-	@Test(dataProvider = "devices")
+	//@Test(dataProvider = "devices")
 	public void shouldShowCorrectBaseLayout(final TestDevice device) throws Exception {
 	    // or use verifyPage("/css","/specs/cssPageLayout.gspec");
 	    load("/css/#forms");
