@@ -35,6 +35,11 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
+                    <configuration>
+                        <suiteXmlFiles>
+                            <suiteXmlFile>${suiteFile}</suiteXmlFile>
+                        </suiteXmlFiles>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -175,6 +180,7 @@
         </dependency>
     </dependencies>
 
+
     <properties>
         <!-- java settings version -->
         <java.version>1.7</java.version>
@@ -202,6 +208,10 @@
         <maven-surefire-report-plugin.version>2.12</maven-surefire-report-plugin.version>
         <github-site-maven-plugin.version>0.9</github-site-maven-plugin.version>
         <maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
+
+        <!-- test suite -->
+        <suiteFile>test-group-home.xml</suiteFile>
+
     </properties>
 
     <scm>
