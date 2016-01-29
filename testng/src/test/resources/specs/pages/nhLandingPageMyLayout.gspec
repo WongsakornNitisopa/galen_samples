@@ -1,0 +1,12 @@
+
+#@objects
+#  featured-box   id    feature_properties
+
+#= Main content =
+
+#   @on iphone5
+#     featured-box:
+#         width   10000px
+
+@import ../widgets/featureCarouselNewProject.gspec
+

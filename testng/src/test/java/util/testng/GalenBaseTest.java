@@ -50,8 +50,10 @@ public abstract class GalenBaseTest {
 
 	private WebDriver activeWebDriver;
 
-  private static final String ENV_URL = "http://getbootstrap.com";
-  
+//    private static final String ENV_URL = "http://getbootstrap.com";
+
+	private static final String ENV_URL = "";
+
   protected String getDefaultURL(){
       return ENV_URL;
   }
@@ -89,6 +91,8 @@ public abstract class GalenBaseTest {
 		final String env = System.getProperty("selenium.start_uri");
 		final String completeUrl = (StringUtils.isEmpty(env) ? getDefaultURL() : env)
 				+ uri;
+
+		System.out.print(completeUrl);
 		getDriver().get(completeUrl);
 	}
 
@@ -106,6 +110,9 @@ public abstract class GalenBaseTest {
 				new Properties(), null,null);
 		layoutReport.setTitle(pName);
 		test.layout(layoutReport, pName);
+
+		System.out.println("Number error is " + layoutReport.errors());
+
 		if (layoutReport.errors() > 0) {
 			final StringBuffer errorDetails = new StringBuffer();
 			for (LayoutSection layoutSection : layoutReport.getSections()) {
@@ -125,6 +132,7 @@ public abstract class GalenBaseTest {
 						}
 					}
 					if (hasErrors) {
+						//System.out.println("has error in " + layoutReport.errors());
 						errorDetails.append("ViewPort Details: ")
 								.append(device).append("\n");
 						errorDetails.append(layoutDetails);
@@ -134,6 +142,7 @@ public abstract class GalenBaseTest {
 			}
 			throw new RuntimeException(errorDetails.toString());
 		}
+		//throw new RuntimeException("error");
 	}
 
 	@BeforeMethod(alwaysRun = true)
@@ -181,6 +190,24 @@ public abstract class GalenBaseTest {
 	public Object[][] devices() {
 		LOG.info("devices");
 		return new Object[][] {// @formatter:off
+
+				{ new TestDevice("desktop", new Dimension(1170, 950), asList(
+						"desktop")) },
+//				{ new TestDevice("iphone5", new Dimension(320, 568), asList(
+//						"iphone5")) },
+//				{ new TestDevice("iphone5", new Dimension(320, 568), asList(
+//						"Bootstrap")) },
+//				{ new TestDevice("desktop", new Dimension(1280, 950), asList(
+//						"landingpage")) },
+
+
+
+
+//				{ new TestDevice("desktop", new Dimension(1024, 800), asList(
+//						"iphone5")) },
+//				{ new TestDevice("desktop", new Dimension(1024, 800), asList(
+//						"desktop", "desktop")) },
+
 //				{ new TestDevice("small-phone", new Dimension(280, 800),
 //						asList("small-phone", "phone", "mobile")) },
 //				{ new TestDevice("normal-phone", new Dimension(320, 800),
@@ -191,8 +218,8 @@ public abstract class GalenBaseTest {
 //						asList("small-tablet", "tablet", "mobile")) },
 //				{ new TestDevice("normal-tablet", new Dimension(450, 800),
 //						asList("normal-tablet", "tablet", "mobile")) },
-				{ new TestDevice("desktop", new Dimension(1024, 800), asList(
-						"desktop", "desktop")) },
+//				{ new TestDevice("desktop", new Dimension(1024, 800), asList(
+//						"desktop", "desktop")) },
 //				{ new TestDevice("fullhd", new Dimension(1920, 1080), asList(
 //						"fullhd", "desktop")) },// @formatter:on
 		};

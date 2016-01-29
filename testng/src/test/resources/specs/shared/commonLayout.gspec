@@ -1,3 +1,6 @@
+@objects
+  featured-box   id    feature_properties
+
 = Overall layout =
 
   content:
@@ -26,4 +29,11 @@
    @on desktop
      content:
        width 80 to 100% of screen/width
-    
+
+   @on iphone6
+     content:
+        width 0 to 1% of screen/width
+
+   @on iphone5
+     featured-box:
+         width   10000px
