@@ -18,8 +18,8 @@ public class HomeLayoutTest extends GalenBaseTest {
 
 	@Test(dataProvider = "devices", groups = "home")
 	public void shouldShowCorrectBaseLayout(final TestDevice device) throws Exception {
-		verifyPage("/", 
-		        device, 
+		verifyPage("/",
+		        device,
 		        "/specs/homePageLayout.gspec",
 		        Arrays.asList("Homepage", "Bootstrap"));
 	}

@@ -51,7 +51,7 @@ spec.colorscheme.precision = 256
 # ~~~~~~~~~~~~~~~~~~~~~~~~~
 # A value between 0 and 256 which defined the range of nearby colors
 # in spectrum which will be picked up for calculating the percentage of usage
-spec.colorscheme.testrange = 6
+spec.colorscheme.testrange = 5
 
 
 # Running in Selenium Grid

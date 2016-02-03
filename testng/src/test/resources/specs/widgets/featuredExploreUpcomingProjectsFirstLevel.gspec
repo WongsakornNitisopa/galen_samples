@@ -1,0 +1,34 @@
+@objects
+	container						xpath		//div/div[contains(@class,"explore-box")]/../div
+	explore-project					css			.explore-box.section-space
+		col-title					css			.col-sm-8
+			title					css			.section-title
+		explore-items            	css			.explore-items
+			explore-item-*      	css			.explore-item
+
+= Featured Explore Upcoming Projects First level =
+
+	@on iphone5
+		explore-project:
+			width   1140px
+		@forEach [explore-project.explore-items.explore-item-*] as currentExploreLocation, next as nextExploreLocation
+			${currentExploreLocation}:
+			width   ~277px
+			height  156px
+
+	@on desktop
+		container:
+			width	1140px
+    	explore-project:
+        	width   1140px
+		explore-project.col-title:
+			width	~67 % of container/width
+		@forEach [explore-project.explore-items.explore-item-*] as currentExploreLocation
+			${currentExploreLocation}:
+				width   ~277px
+				height  156px
+
+	@on *
+		explore-project.explore-items:
+			count any explore-project.explore-items.explore-item-* is 8
+
