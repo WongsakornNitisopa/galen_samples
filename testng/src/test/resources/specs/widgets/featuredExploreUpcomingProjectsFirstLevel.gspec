@@ -11,12 +11,15 @@
 	@on iphone5
 		explore-project:
 			width	305px
+		explore-project.col-title:
+            inside partly container -15 px left
+            inside partly container -15 px right
 		@forEach [explore-project.explore-items.explore-item-*] as currentExploreLocation, next as nextExploreLocation
 			${currentExploreLocation}:
 				width	305px
 				height	171px
 				left-of ${nextExploreLocation}	-305px
-				above ${nextExploreLocation}	8px
+				above ${nextExploreLocation}	~8px
 
 	@on desktop
 		container:
