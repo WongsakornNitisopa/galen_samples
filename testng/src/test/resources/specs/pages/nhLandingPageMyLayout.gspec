@@ -1,4 +1,4 @@
 
-#@import ../widgets/featuredCarouselNewProject.gspec
+@import ../widgets/featuredCarouselNewProject.gspec
 @import ../widgets/featuredExploreUpcomingProjectsFirstLevel.gspec
 

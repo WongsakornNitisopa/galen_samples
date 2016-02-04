@@ -1,37 +1,36 @@
 @objects
-  featured-box      id      feature_properties
-        title       css     .section-title
-        carousel    css     .feature-properties.carousel
-        featured-listings    css     .media-thumbs.carousel-indicators
-            listing-*        css     li
+	featured-box			id		feature_properties
+        title				css     .section-title
+        carousel			css     .feature-properties.carousel
+        featured-listings	css     .media-thumbs.carousel-indicators
+            listing-*		css     li
 
 = Main content =
 
-   @on iphone5
-     featured-box:
-        width   305px
-     featured-box.title:
-        width   305px
-     featured-box.carousel:
-        width   305px
-        height  172px
-     featured-box.featured-listings:
-        width   305px
-     @forEach [featured-box.featured-listings.listing-*] as currentListing, next as nextListing
-        ${currentListing}:
-            left-of ${nextListing} -305px
-            above ${nextListing} 0px
+	@on iphone5
+		featured-box:
+			width   305px
+		featured-box.title:
+			width   305px
+		featured-box.carousel:
+			width   305px
+			height  172px
+		featured-box.featured-listings:
+			width   305px
+		@forEach [featured-box.featured-listings.listing-*] as currentListing, next as nextListing
+			${currentListing}:
+				left-of ${nextListing} 	-305px
+				above ${nextListing} 	0px
 
+	@on desktop
+		featured-box:
+			width   1140px
+		@forEach [featured-box.featured-listings.listing-*] as currentListing, next as nextListing
+			${currentListing}:
+				left-of ${nextListing} -320px
+				above ${nextListing} -1px
 
-   @on desktop
-     featured-box:
-         width   1140px
-     @forEach [featured-box.featured-listings.listing-*] as currentListing, next as nextListing
-        ${currentListing}:
-            left-of ${nextListing} -320px
-            above ${nextListing} -1px
-
-   @on *
-     featured-box.featured-listings:
-        count any featured-box.featured-listings.listing-* is 6
+	@on *
+		featured-box.featured-listings:
+			count any featured-box.featured-listings.listing-* is 6
 
