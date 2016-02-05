@@ -191,10 +191,10 @@ public abstract class GalenBaseTest {
         LOG.info("devices");
         return new Object[][]{// @formatter:off
 
+//                {new TestDevice("iphone5", new Dimension(320, 568), asList(
+//                        "iphone5"))},
                 {new TestDevice("desktop", new Dimension(1170, 950), asList(
                         "desktop"))},
-                {new TestDevice("iphone5", new Dimension(320, 568), asList(
-                        "iphone5"))},
 
 
 //				{ new TestDevice("desktop", new Dimension(1024, 800), asList(

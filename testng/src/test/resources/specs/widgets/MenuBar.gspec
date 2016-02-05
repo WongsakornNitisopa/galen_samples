@@ -1,0 +1,27 @@
+@objects
+	wrapper								id			wrapper
+		main-navigator					id			navbar-main
+			header-bg					css			.header-bg
+				container				css			.container
+					navbar-header		css			.navbar-header
+						icon-bar-*		css			.icon-bar
+
+
+
+=	Main Menu bar	=
+
+	@on iphone5
+		wrapper:
+			width	335	px
+		wrapper.main-navigator:
+				width	100	% of wrapper/width
+
+	@on desktop
+		wrapper:
+			width	1170 px
+		wrapper.main-navigator:
+			width	100	% of wrapper/width
+		wrapper.main-navigator.header-bg.container.navbar-header:
+			width	175 px
+
+

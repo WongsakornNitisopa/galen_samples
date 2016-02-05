@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Default Suite">
-    <test name="galen-samples-testngs">
-        <classes>
-            <class name="sample.layout.JavascriptLayoutTest"/>
-        </classes>
-    </test> <!-- galen-samples-testng -->
-</suite> <!-- Default Suite -->

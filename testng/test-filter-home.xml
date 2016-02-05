@@ -11,7 +11,8 @@
         </groups>
 
         <classes>
-            <class name="developerlisting.layout.NhLandingPageMyTest"/>
+            <class name="developerlisting.layout.NhLandingPageSgTest"/>
+            <class name="developerlisting.layout.NhSearchResultPageSgTest"/>
         </classes>
         <!--<classes>-->
             <!--<class name="com.mkyong.testng.examples.suite.TestDatabase" />-->
