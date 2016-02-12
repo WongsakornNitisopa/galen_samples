@@ -11,6 +11,8 @@ import util.testng.GalenBaseTest;
 import java.net.MalformedURLException;
 import java.util.Arrays;
 
+import static developerlisting.constantName.constantName.*;
+
 /**
  * @author win
  */
@@ -18,29 +20,30 @@ public class NhLandingPageSgTest extends GalenBaseTest {
 
     @BeforeMethod(groups = "smoke")
     public void LoadPage() throws MalformedURLException {
-        String nhLandingPageUrl = "http://www.propertyguru.com.sg/new-project-launch";
+        String nhLandingPageUrl = String.format(NhLandingPageSG, getTestingEnv());
+        System.out.print(nhLandingPageUrl);
         load(nhLandingPageUrl);
     }
 
     @Test(dataProvider = "devices", groups = "smoke")
     public void shouldShowMainNavBar(final TestDevice device) throws Exception {
         verifyPage(device,
-                "/specs/widgets/MenuBar.gspec",
-                Arrays.asList(constantName.TestSmoke, constantName.PageNhLanding, constantName.WidgetNenuBar, constantName.regionSg));
+                "/specs/widgets/menuBar.gspec",
+                Arrays.asList(TestSmoke, PageNhLanding, WidgetMenuBar, regionSg));
     }
 
     @Test(dataProvider = "devices", groups = "smoke")
     public void shouldShowFeatureNewProject(final TestDevice device) throws Exception {
         verifyPage(device,
                 "/specs/widgets/featuredCarouselNewProject.gspec",
-                Arrays.asList(constantName.TestSmoke, constantName.PageNhLanding, constantName.WidgetFeaturedNewhomesCarousel, constantName.regionSg));
+                Arrays.asList(TestSmoke, PageNhLanding, WidgetFeaturedNewhomesCarousel, regionSg));
     }
 
     @Test(dataProvider = "devices", groups = "smoke")
     public void shouldShowExploreUpcomingProjectsFirstLevel(final TestDevice device) throws Exception {
         verifyPage(device,
                 "/specs/widgets/featuredExploreUpcomingProjectsFirstLevel.gspec",
-                Arrays.asList(constantName.TestSmoke, constantName.PageNhLanding, constantName.WidgetFeaturedExploreUpcoming, constantName.regionSg));
+                Arrays.asList(TestSmoke, PageNhLanding, WidgetFeaturedExploreUpcoming, regionSg));
     }
 
 }
