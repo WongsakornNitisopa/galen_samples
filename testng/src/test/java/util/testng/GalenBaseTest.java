@@ -50,12 +50,18 @@ public abstract class GalenBaseTest {
 
     private WebDriver activeWebDriver;
 
-//    private static final String ENV_URL = "http://getbootstrap.com";
-
     private static final String ENV_URL = "";
+
+//    private static String TESTING_ENV = null;
+
+    private static String TESTING_ENV = "integration.";
 
     protected String getDefaultURL() {
         return ENV_URL;
+    }
+
+    protected String getTestingEnv() {
+        return TESTING_ENV;
     }
 
     public WebElement scrollToElement(final By selector) throws MalformedURLException {
@@ -67,7 +73,12 @@ public abstract class GalenBaseTest {
 
     public void clickElement(final By selector) throws MalformedURLException {
         WebElement element = scrollToElement(selector);
-        element.click();
+        if (element.isDisplayed()) {
+            element.click();
+        } else {
+            ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click();", element);
+        }
+
     }
 
     public void enterText(final By selector, final String text) throws MalformedURLException {
@@ -92,7 +103,7 @@ public abstract class GalenBaseTest {
         final String completeUrl = (StringUtils.isEmpty(env) ? getDefaultURL() : env)
                 + uri;
 
-        System.out.print(completeUrl);
+        System.out.println("Url :" + completeUrl);
         getDriver().get(completeUrl);
     }
 
@@ -174,16 +185,28 @@ public abstract class GalenBaseTest {
         if (activeWebDriver == null) {
             System.err.println("activeWebDriver");
             final String grid = System.getProperty("selenium.grid");
-//			if (grid == null) {
-            activeWebDriver = new FirefoxDriver();
-//			} else {
-            // chrome runs much faster in a selenium grid
-//				activeWebDriver = new RemoteWebDriver(new URL(grid),
-//						DesiredCapabilities.chrome());
-//			}
+            if (grid == null) {
+                activeWebDriver = new FirefoxDriver();
+            } else {
+                // chrome runs much faster in a selenium grid
+                activeWebDriver = new RemoteWebDriver(new URL(grid),
+                        DesiredCapabilities.chrome());
+            }
         }
         return activeWebDriver;
 
+    }
+
+    public void getTestEnv() {
+
+        if (TESTING_ENV == null) {
+            final String env = System.getProperty("testing.env");
+            if (env.trim().length() > 0) {
+                TESTING_ENV = env;
+            }
+        }
+        //staging.
+        //integration.
     }
 
     @DataProvider(name = "devices")
@@ -191,10 +214,10 @@ public abstract class GalenBaseTest {
         LOG.info("devices");
         return new Object[][]{// @formatter:off
 
-//                {new TestDevice("iphone5", new Dimension(320, 568), asList(
-//                        "iphone5"))},
-                {new TestDevice("desktop", new Dimension(1170, 950), asList(
-                        "desktop"))},
+                {new TestDevice("iphone5", new Dimension(320, 568), asList(
+                        "iphone5"))},
+//                {new TestDevice("desktop", new Dimension(1170, 950), asList(
+//                        "desktop"))},
 
 
 //				{ new TestDevice("desktop", new Dimension(1024, 800), asList(
