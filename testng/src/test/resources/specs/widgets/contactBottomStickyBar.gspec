@@ -1,0 +1,12 @@
+@objects
+	columned-content					css			.contact-agent-sticky.visible-xs-block.count-2
+		content-contact-*				css			li
+
+=	Contact Bottom Sticky Bar =
+
+	@on iphone5
+		columned-content:
+			visible
+		columned-content:
+			count any columned-content.content-contact-* is 2
+

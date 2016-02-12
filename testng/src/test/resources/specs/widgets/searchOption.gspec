@@ -1,0 +1,30 @@
+@objects
+	columned-content					css			.columned-content-row
+		main-content					css			.main-content
+#			listing-option				css			.listing-display-options.container#
+#				option-col				css			.col-xs-12.col-md-8
+#		right-content					css			.right-content
+
+@set
+	mainContentWidth	${find("columned-content").left()}
+
+=	Listing option	=
+
+#	@on iphone5
+
+
+	@on desktop
+		columned-content:
+			width	${mainContentWidth} px
+
+#		columned-content.main-content:
+#			width	${columned-content.width()} px
+
+#		columned-content.main-content:
+#			width	${columned-content.width() - right-content.width()} px
+#		wrapper.main-navigator:
+#			width	100	% of wrapper/width
+#		wrapper.main-navigator.header-bg.container.navbar-header:
+#			width	175 px
+
+

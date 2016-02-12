@@ -1,0 +1,34 @@
+@objects
+
+	columned-content		css		.columned-content
+	unitType				id		unittypes
+		unitType-table		css		.table
+			theader			css		thead
+				trow		css		tr
+					th-*	css		th
+@set
+	objectWidth	305
+
+=	Unit Type	=
+
+	@on iphone5
+		columned-content:
+			width ${objectWidth} px
+		unitType:
+			width ${objectWidth} px
+		unitType.unitType-table:
+			width ${objectWidth} px
+		unitType.unitType-table.theader:
+			width ${objectWidth - 1} px
+		unitType.unitType-table.theader.trow:
+			width 304px
+		unitType.unitType-table.theader.trow.th-1:
+			width 104px
+		unitType.unitType-table.theader.trow.th-2:
+			width 113px
+		unitType.unitType-table.theader.trow.th-3:
+			width 87px
+
+	#	@on desktop
+
+
